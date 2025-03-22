@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Flight booking travel</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" href="css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <!-- owl stylesheets --> 
+      <link rel="stylesheet" href="css/owl.carousel.min.css">
+      <link rel="stylesheet" href="css/owl.theme.default.min.css">
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      <style>
+         
+          
+          .logo {
+              font-size: 24px;
+              font-weight: bold;
+              text-align: center;
+              margin-bottom: 20px;
+          }
+          .form-section {
+              background: white;
+              padding: 20px;
+              border-radius: 10px;
+              box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
+          }
+          .nav-tabs .nav-link {
+              font-weight: bold;
+              color: #fffb00;
+          }
+          .nav-tabs .nav-link.active {
+              background-color: #ffffff;
+              color: rgb(230, 76, 37);
+          }
+          .search-btn {
+              background: #ff6f00;
+              border: none;
+              color: white;
+              font-size: 16px;
+              padding: 10px;
+              width: 100%;
+              border-radius: 5px;
+          }
+          @media (max-width: 768px) {
+              .col-md-6, .col-md-4, .col-md-2 {
+                  width: 100%;
+              }
+          }
+          .search-box {
+              width: 300px;
+              padding: 10px;
+              border: 1px solid #666666;
+              border-radius: 5px;
+          }
+          .autocomplete-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      border-bottom: 1px solid #ffffff;
+      cursor: pointer;
+      background: #fff;
+  }
+  
+  .autocomplete-item:hover {
+      background: #f1f1f1;
+      color: rgb(255, 255, 255);
+  }
+  
+  .autocomplete-item .flag {
+      font-size: 20px;
+  }
+  
+  .autocomplete-item div {
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .autocomplete-item small {
+      color: black;
+      font-size: 12px;
+  }
+  .autocomplete-item small:hover {
+      color: white;
+  }
+  .autocomplete-item {
+    color: #000000;
+    padding: 10px;
+    cursor: pointer;
+ 
+}
+
+
+.autocomplete-item:hover {
+    background-color: #000000;
+    color: white;
+}
+
+/* Limit the height and enable scrolling */
+.from-autocomplete, 
+.to-autocomplete {
+    max-height: 500px;
+    border-radius: 10px; /* Adjust as needed */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    overflow-y: auto;
+    background: #00000004;
+    position: absolute;
+    z-index: 1000;
+  
+    scrollbar-darkshadow-color: blue ;
+    scrollbar-borer-color: red;
+    scrollbar-width: thin ; /* For Firefox */ 
+    scrollbar-color: #6272ff #ffffff;
+    
+     /* For Firefox */
+}
+
+/* Scrollbar styles for Chrome, Edge, and Safari */
+.from-autocomplete::-webkit-scrollbar, 
+.to-autocomplete::-webkit-scrollbar {
+    width: 8px; /* Adjust scrollbar width */
+}
+
+.from-autocomplete::-webkit-scrollbar-track, 
+.to-autocomplete::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Track color */
+    border-radius: 10px;
+}
+
+.from-autocomplete::-webkit-scrollbar-thumb, 
+.to-autocomplete::-webkit-scrollbar-thumb {
+    background: #888; /* Scrollbar color */
+    border-radius: 10px;
+}
+
+.from-autocomplete::-webkit-scrollbar-thumb:hover, 
+.to-autocomplete::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker on hover */
+}
+.flight-search {
+    background-image: url(./image\ copy.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+  
+   
+    padding:  0;
+  
+    text-align: center;
+    color: white;
+
+    
+ 
+}
+
+/* Keyframe Animation for Background */
+
+
+.search-form {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.search-form input, 
+.search-form select, 
+.search-form button {
+    height: 50px;
+    font-size: 16px;
+}
+
+.autocomplete-list {
+   
+  
+   
+}
+
+.scroll-container::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome, Safari */
+        }
+
+        .scroll-container {
+            -ms-overflow-style: none;  /* Hide scrollbar for IE, Edge */
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 10px; /* Space for better scrolling */
+        }
+        .review-card {
+                    background: #fff;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+            
+                .review-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                }
+      </style>
+      
+    
+</head>
+<body style="overfloow-x: hidden;">
+
+    <nav class="navbar navbar-expand-lg" style="background-color: #003b95; padding: 10px;">
+        <div class="container">
+            <a class="navbar-brand" href="/" style="color: white; font-size: 24px; font-weight: bold;">FlightBooking</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto" style="display: flex; align-items: center;">
+                    <li class="nav-item"><a class="nav-link" href="./index.html#" style="color: white; font-size: 18px; padding: 10px 15px;">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./index.html#" style="color: white; font-size: 18px; padding: 10px 15px;">Flights</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./index.html#" style="color: white; font-size: 18px; padding: 10px 15px;">Book a Flight</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./index.html#" style="color: white; font-size: 18px; padding: 10px 15px;">My Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./index.html#" style="color: white; font-size: 18px; padding: 10px 15px;">Contact</a></li>
+                    
+                    <!-- Weather Section -->
+                    <li class="nav-item" style="margin-left: 20px;">
+                        <div id="weather" style="color: white; font-size: 16px; display: flex; align-items: center;">
+                            <img id="weather-icon" src="" alt="Weather" style="width: 25px; height: 25px; margin-right: 5px;">
+                            <span id="weather-text">Loading...</span>
+                            <!-- city -->
+                            <span id="city"> / Delhi</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const apiKey = "3d6ff3fe3e01aecf76456580301c8ac7"; // Replace with your API key
+            const city = "Delhi"; // You can dynamically change this based on user location
+    
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`)
+                .then(response => response.json())
+                .then(data => {
+                    const weatherText = `${data.main.temp}°C, ${data.weather[0].description}`;
+                    const weatherIcon = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+    
+                    document.getElementById("weather-text").textContent = weatherText;
+                    document.getElementById("weather-icon").src = weatherIcon;
+                })
+                .catch(error => {
+                    document.getElementById("weather-text").textContent = "Weather Unavailable";
+                });
+        });
+    </script>
+    
+   
+    <section class="container-fluid flight-search">
+
+        <marquee behavior="scroll" direction="Right"> <img src="./A380-Emirates.png" class="airplane" style="height: 150px;" id="airplane"></marquee>
+        <style>
+            @keyframes upDown {
+                0% { transform: translateY(0); }
+                50% { transform: translateY(-20px); } /* Moves up */
+                100% { transform: translateY(0); } /* Moves back down */
+            }
+        
+            .airplane {
+                height: 150px;
+                position: relative;
+                animation: upDown 2s infinite ease-in-out;
+            }
+        </style>
+        <!-- <section class="airplane-container">
+            <img src="./360849788_11429592.png" class="airplane" id="airplane">
+            <h1 class="message" id="message" >Welcome to Our Flight Booking Website</h1>
+        </section>
+    
+        <script>
+            document.getElementById("airplane").addEventListener("animationend", function() {
+                document.getElementById("message").style.display = "block";
+            });
+        </script> -->
+        
+        <!-- Custom CSS -->
+        
+        
+       
+       
+    <section class="container" >
+                <div class="form-section  p-4 rounded " style="background: transparent; padding: 20px; border-radius: 10px; ">
+                    <div class="d-flex justify-content-center">
+                        <ul class="nav nav-tabs" id="tripTabs">
+                            <li class="nav-item">
+                                <a class="nav-link active text-white" style="background-color: #000f3a; font-size: 12px;" data-bs-toggle="tab" href="#oneway">
+                                    One Way
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" style="background-color: #000f3a; font-size: 12px;" data-bs-toggle="tab" href="#roundtrip">
+                                     Round Trip
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" style="background-color: #000f3a; font-size: 12px;" data-bs-toggle="tab" href="#multicity">
+                                    Multi-City
+                                </a>
+                            </li>
+                        </ul>
+                    </div> 
+            
+                    <div class="tab-content mt-3">
+                        <div id="oneway" class="tab-pane fade show active">
+                            <form id="oneWayForm" class="row g-3 p-3 rounded shadow" style="backdrop-filter: blur(15px); background-color: #0f304e94;">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="email"> Email <span style="color: red;">*</span></label>
+                                        <input class="form-control p-3 border" type="email" name="email" id="email" placeholder="Enter your email" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="phone"> Phone <span style="color: red;">*</span></label>
+                                        <input class="form-control p-3 border" type="number" name="phone" id="phone" placeholder="Enter your phone number" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col">
+                                        <label class="fw-bold">From</label>
+                                        <input type="text" class="form-control p-3 border airport" id="fromOneWay" placeholder="Enter departure city/airport">
+                                        <div class="autocomplete-list from-autocomplete"></div>
+
+                                    </div>
+                                    <div class="col">
+                                        <label class="fw-bold">To</label>
+                                        <input type="text" class="form-control p-3 border airport" id="toOneWay" placeholder="Enter destination">
+                                        <div class="autocomplete-list to-autocomplete"></div>
+
+                                    </div>
+                                    <div class="col">
+                                        <label class="fw-bold">Departure Date</label>
+                                        <input type="date" class="form-control p-3 border">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label class="fw-bold text-white">Travellers</label>
+                                <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#travellerSectionroneway">
+                                    Select Travellers
+                                </button>
+                            </div>
+                                <div class="row mt-4">
+                                           
+                                    <div id="travellerSectionroneway" class="collapse border p-4 shadow-sm " style="background-color: rgb(8, 17, 71); border-radius: 5px;">
+                                        <div class="row d-flex align-items-center">
+                                            <!-- Adults -->
+                                            <div class="col-md-4">
+                                                <span class="fw-semibold text-white">Adults (12+ yrs)</span>
+                                                <div class="input-group">
+                                                    <button class="btn btn-outline-light btn-minus">-</button>
+                                                    <input type="text" class="form-control text-center border-0 bg-white" value="1" readonly min="1" max="9">
+                                                    <button class="btn btn-outline-light btn-plus">+</button>
+                                                </div>
+                                            </div>
+                                    
+                                            <!-- Children -->
+                                            <div class="col-md-4">
+                                                <span class="fw-semibold text-white">Children (2-12 yrs)</span>
+                                                <div class="input-group">
+                                                    <button class="btn btn-outline-light btn-minus">-</button>
+                                                    <input type="text" class="form-control text-center border-0 bg-white" value="0" readonly min="0" max="9">
+                                                    <button class="btn btn-outline-light btn-plus">+</button>
+                                                </div>
+                                            </div>
+                                    
+                                            <!-- Infants -->
+                                            <div class="col-md-4">
+                                                <span class="fw-semibold text-white">Infants (Below 2 yrs)</span>
+                                                <div class="input-group">
+                                                    <button class="btn btn-outline-light btn-minus">-</button>
+                                                    <input type="text" class="form-control text-center border-0 bg-white" value="0" readonly min="0" max="9">
+                                                    <button class="btn btn-outline-light btn-plus">+</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                        <!-- Travel Class Selection -->
+                                        <div class="mt-3">
+                                            <label class="fw-bold text-white">Travel Class</label>
+                                            <div class="d-flex flex-wrap gap-2">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" hidden name="travelClass" id="economy" value="Economy" checked>
+                                                    <label class="form-check-label btn btn-outline-light px-4" for="economy">Economy</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" hidden name="travelClass" id="premiumEconomy" value="Premium Economy">
+                                                    <label class="form-check-label btn btn-outline-light px-4" for="premiumEconomy">Premium Economy</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" hidden name="travelClass" id="business" value="Business">
+                                                    <label class="form-check-label btn btn-outline-light px-4" for="business">Business</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" hidden name="travelClass" id="firstClass" value="First Class">
+                                                    <label class="form-check-label btn btn-outline-light px-4" for="firstClass">First Class</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                
+                            
+                                <div class="col-12 text-center mt-4">
+                                    <button type="submit" class="btn btn-lg rounded-pill btn-success px-3 py-2 shadow-sm" style="border-radius: 0;">
+                                        🔍 Search Flights
+                                    </button>
+                                </div>
+                            </form>
+                            
+                        </div>
+                        
+                        <div id="roundtrip" class="tab-pane fade">
+                            <form id="roundTripForm" class="row g-3" style="backdrop-filter: blur(15px); background-color: #0f304e94; padding: 20px; border-radius: 10px;">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label" style="font-weight: bold; color: #ffffff;">Email: <span style="color: red;">*</span></label>
+                                        <input class="form-control p-3" type="email" name="email" id="email" placeholder="Enter your email" required 
+                                               >
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="phone" class="form-label" style="font-weight: bold; color: #ffffff;">Phone: <span style="color: red;">*</span></label>
+                                        <input class="form-control p-3" type="number" name="phone" id="phone" placeholder="Enter your phone number" required 
+                                              >
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <label style="font-weight: bold; color: #ffffff;">From</label>
+                                        <input type="text" class="form-control p-3 airport" id="fromRounded" placeholder="Enter departure city/airport"
+                                               >
+                                               <div class="autocomplete-list from-autocomplete"></div>
+                                    </div>
+                                    <div class="col">
+                                        <label style="font-weight: bold; color: #ffffff;">To</label>
+                                        <input type="text" class="form-control p-3 airport" id="toRounded" placeholder="Enter destination"
+                                               >
+                                               <div class="autocomplete-list to-autocomplete"></div>
+                                    </div>
+                                    <div class="col">
+                                        <label style="font-weight: bold; color: #ffffff;">Departure Date</label>
+                                        <input type="date" class="form-control p-3" >
+                                    </div>
+                                    <div class="col">
+                                        <label style="font-weight: bold; color: #ffffff;">Return Date</label>
+                                        <input type="date" class="form-control p-3" >
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label class="fw-bold text-white">Travellers</label>
+                                <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#travellerSectionreturn">
+                                    Select Travellers
+                                </button>
+                            </div>
+                                <div class="row mt-4">
+                                           
+                                        <div id="travellerSectionreturn" class="collapse border p-4 shadow-sm " style="background-color: rgb(8, 17, 71); border-radius: 5px;">
+                                            <div class="row d-flex align-items-center">
+                                                <!-- Adults -->
+                                                <div class="col-md-4">
+                                                    <span class="fw-semibold text-white">Adults (12+ yrs)</span>
+                                                    <div class="input-group">
+                                                        <button class="btn btn-outline-light btn-minus">-</button>
+                                                        <input type="text" class="form-control text-center border-0 bg-white" value="1" readonly min="1" max="9">
+                                                        <button class="btn btn-outline-light btn-plus">+</button>
+                                                    </div>
+                                                </div>
+                                        
+                                                <!-- Children -->
+                                                <div class="col-md-4">
+                                                    <span class="fw-semibold text-white">Children (2-12 yrs)</span>
+                                                    <div class="input-group">
+                                                        <button class="btn btn-outline-light btn-minus">-</button>
+                                                        <input type="text" class="form-control text-center border-0 bg-white" value="0" readonly min="0" max="9">
+                                                        <button class="btn btn-outline-light btn-plus">+</button>
+                                                    </div>
+                                                </div>
+                                        
+                                                <!-- Infants -->
+                                                <div class="col-md-4">
+                                                    <span class="fw-semibold text-white">Infants (Below 2 yrs)</span>
+                                                    <div class="input-group">
+                                                        <button class="btn btn-outline-light btn-minus">-</button>
+                                                        <input type="text" class="form-control text-center border-0 bg-white" value="0" readonly min="0" max="9">
+                                                        <button class="btn btn-outline-light btn-plus">+</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <!-- Travel Class Selection -->
+                                            <div class="mt-3">
+                                                <label class="fw-bold text-white">Travel Class</label>
+                                                <div class="d-flex flex-wrap gap-2">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" hidden name="travelClass" id="economy" value="Economy" checked>
+                                                        <label class="form-check-label btn btn-outline-light px-4" for="economy">Economy</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" hidden name="travelClass" id="premiumEconomy" value="Premium Economy">
+                                                        <label class="form-check-label btn btn-outline-light px-4" for="premiumEconomy">Premium Economy</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" hidden name="travelClass" id="business" value="Business">
+                                                        <label class="form-check-label btn btn-outline-light px-4" for="business">Business</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" hidden name="travelClass" id="firstClass" value="First Class">
+                                                        <label class="form-check-label btn btn-outline-light px-4" for="firstClass">First Class</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                </div>
+                                <div class="col-12 text-center mt-4">
+                                    <button type="submit" class="btn btn-lg rounded-pill btn-success px-3 py-2 shadow-sm" style="border-radius: 0;">
+                                        🔍 Search Flights
+                                    </button>
+                                </div>
+                            </form>
+                            
+                            
+                        </div>
+                        
+                        
+                        <!-- <div id="roundtrip" class="tab-pane fade">
+                            <form id="roundTripForm" class="row g-3">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email: <span style="color: red;">*</span></label>
+                                        <input class="form-control" type="email" name="email" id="email" placeholder="Enter your email" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="phone" class="form-label">Phone: <span style="color: red;">*</span></label>
+                                        <input class="form-control" type="number" name="phone" id="phone" placeholder="Enter your phone number" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-md-3">
+                                    <label>From</label>
+                                    <input type="text" class="form-control airport" id="fromRounded" placeholder="Enter departure city/airport">
+                                    <div class="autocomplete-list from-autocomplete"></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label>To</label>
+                                    <input type="text" class="form-control airport" id="toRounded" placeholder="Enter destination">
+                                    <div class="autocomplete-list to-autocomplete"></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Departure Date</label>
+                                    <input type="date" class="form-control">
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Return Date</label>
+                                    <input type="date" class="form-control">
+                                </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                      <span style="display: block; font-weight: 600; color: #5A5A5A; font-size: 14px; margin-bottom: 5px;">
+                                        Adults <small>(Aged 12+ yrs)</small>
+                                      </span>
+                                      <div class="input-group d-flex align-items-center" style="max-width: 140px;">
+                                        <button class="btn btn-outline-secondary btn-minus rounded-circle" 
+                                                style="width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">-</button>
+                                        <input type="text" class="form-control text-center mx-2" 
+                                               style="width: 50px; font-weight: bold; text-align: center; border: none;" 
+                                               value="1" min="1" max="9" readonly>
+                                        <button class="btn btn-outline-secondary btn-plus rounded-circle" 
+                                                style="width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">+</button>
+                                      </div>
+                                    </div>
+                                  
+                                    <div class="col-md-4">
+                                      <span style="display: block; font-weight: 600; color: #5A5A5A; font-size: 14px; margin-bottom: 5px;">
+                                        Children <small>(Aged 2-12 yrs)</small>
+                                      </span>
+                                      <div class="input-group d-flex align-items-center" style="max-width: 140px;">
+                                        <button class="btn btn-outline-secondary btn-minus rounded-circle" 
+                                                style="width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">-</button>
+                                        <input type="text" class="form-control text-center mx-2" 
+                                               style="width: 50px; font-weight: bold; text-align: center; border: none;" 
+                                               value="0" min="0" max="9" readonly>
+                                        <button class="btn btn-outline-secondary btn-plus rounded-circle" 
+                                                style="width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">+</button>
+                                      </div>
+                                    </div>
+                                  
+                                    <div class="col-md-4">
+                                      <span style="display: block; font-weight: 600; color: #5A5A5A; font-size: 14px; margin-bottom: 5px;">
+                                        Infants <small>(Below 2 yrs)</small>
+                                      </span>
+                                      <div class="input-group d-flex align-items-center" style="max-width: 140px;">
+                                        <button class="btn btn-outline-secondary btn-minus rounded-circle" 
+                                                style="width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">-</button>
+                                        <input type="text" class="form-control text-center mx-2" 
+                                               style="width: 50px; font-weight: bold; text-align: center; border: none;" 
+                                               value="0" min="0" max="9" readonly>
+                                        <button class="btn btn-outline-secondary btn-plus rounded-circle" 
+                                                style="width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">+</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                
+                                <div class="col-12">
+                                    <button type="submit" class="search-btn">Search Flights</button>
+                                </div>
+                            </form>
+                        </div> -->
+                        
+                        <div id="multicity" class="tab-pane fade">
+                            <form id="multiCityForm" class="row g-3 p-4 shadow-sm" style=" backdrop-filter: blur(15px); background-color: #0f304e94;  background-size: cover; background-position: center; background-repeat: no-repeat; border-radius: 5px;">
+                                <div id="multiCityContainer">
+                                    <div class="multi-city-row   shadow-sm position-relative" style="border: none;">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="email" class="form-label fw-bold text-white">Email: <span class="text-danger">*</span></label>
+                                                <input class="form-control rounded" type="email" name="email" id="email" placeholder="Enter your email" required style="padding: 12px; border: 1px solid #ccc; border-radius: 0;">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="phone" class="form-label fw-bold text-white">Phone: <span class="text-danger">*</span></label>
+                                                <input class="form-control rounded " type="number" name="phone" id="phone" placeholder="Enter your phone number" required style="padding: 12px; border: 1px solid #ccc; border-radius: 0;">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            
+                                            
+                                        <div class="col">
+                                            <label class="fw-bold text-white">From</label>
+                                            <input type="text" class="form-control p-3 airport rounded " id="fromMultiCity" placeholder="Enter departure city/airport" style="border-radius: 0;">
+                                            <div class="autocomplete-list from-autocomplete"></div>
+                                        </div>
+                                        <div class="col">
+                                            <label class="fw-bold text-white">To</label>
+                                            <input type="text" class="form-control p-3 airport rounded" id="toMultiCity" placeholder="Enter destination" style="border-radius: 0;">
+                                            <div class="autocomplete-list to-autocomplete"></div>
+                                        </div>
+                                        <div class="col">
+                                            <label class="fw-bold text-white">Departure</label>
+                                            <input type="date" class="form-control p-3 rounded" style="border-radius: 0;">
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                                    </div>
+                                    <div class="col">
+                                        <label class="fw-bold text-white">Travellers</label>
+                                    <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#travellerSection">
+                                        Select Travellers
+                                    </button>
+                                       
+                                    </div>
+                                        <div class="row mt-4">
+                                           
+                                            <div id="travellerSection" class="collapse border p-4 shadow-sm " style="background-color: rgb(8, 17, 71); border-radius: 5px;">
+                                                <div class="row d-flex align-items-center">
+                                                    <!-- Adults -->
+                                                    <div class="col-md-4">
+                                                        <span class="fw-semibold text-white">Adults (12+ yrs)</span>
+                                                        <div class="input-group">
+                                                            <button class="btn btn-outline-light btn-minus">-</button>
+                                                            <input type="text" class="form-control text-center border-0 bg-white" value="1" readonly min="1" max="9">
+                                                            <button class="btn btn-outline-light btn-plus">+</button>
+                                                        </div>
+                                                    </div>
+                                            
+                                                    <!-- Children -->
+                                                    <div class="col-md-4">
+                                                        <span class="fw-semibold text-white">Children (2-12 yrs)</span>
+                                                        <div class="input-group">
+                                                            <button class="btn btn-outline-light btn-minus">-</button>
+                                                            <input type="text" class="form-control text-center border-0 bg-white" value="0" readonly min="0" max="9">
+                                                            <button class="btn btn-outline-light btn-plus">+</button>
+                                                        </div>
+                                                    </div>
+                                            
+                                                    <!-- Infants -->
+                                                    <div class="col-md-4">
+                                                        <span class="fw-semibold text-white">Infants (Below 2 yrs)</span>
+                                                        <div class="input-group">
+                                                            <button class="btn btn-outline-light btn-minus">-</button>
+                                                            <input type="text" class="form-control text-center border-0 bg-white" value="0" readonly min="0" max="9">
+                                                            <button class="btn btn-outline-light btn-plus">+</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            
+                                                <!-- Travel Class Selection -->
+                                                <div class="mt-3">
+                                                    <label class="fw-bold text-white">Travel Class</label>
+                                                    <div class="d-flex flex-wrap gap-2">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" hidden name="travelClass" id="economy" value="Economy" checked>
+                                                            <label class="form-check-label btn btn-outline-light px-4" for="economy">Economy</label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" hidden name="travelClass" id="premiumEconomy" value="Premium Economy">
+                                                            <label class="form-check-label btn btn-outline-light px-4" for="premiumEconomy">Premium Economy</label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" hidden name="travelClass" id="business" value="Business">
+                                                            <label class="form-check-label btn btn-outline-light px-4" for="business">Business</label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" hidden name="travelClass" id="firstClass" value="First Class">
+                                                            <label class="form-check-label btn btn-outline-light px-4" for="firstClass">First Class</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="text-center mt-3 ">
+                                            <button type="button" id="addMultiCity" class="btn btn-outline-success px-4 py-2 shadow col" style="border-radius: 0;">
+                                                + Add Another Route
+                                            </button>
+                                            <div class="col-12 text-center mt-4">
+                                                <button type="submit" class="btn btn-lg btn-success px-3 rounded-pill py-2 shadow-sm" style="border-radius: 0;">
+                                                    🔍 Search Flights
+                                                </button>
+                                            </div>
+                                           
+                                    </div>
+                                </div>
+                                
+                            </form>
+                        </div>
+                        
+                    </div>
+           
+            </div>
+            
+            <script>
+  $(document).ready(function () {
+    $("#addMultiCity").click(function (event) {
+        event.preventDefault(); // Prevent unintended form submission
+        
+        let newRow = `
+       
+        <div class="multi-city-wrapper mt-3">
+            <div class="multi-city-row row g-3 p-3  rounded shadow-sm position-relative">
+                <div class="col-md-5">
+                    <label class="fw-bold text-white">From</label>
+                    <input type="text" class="form-control airport p-3 rounded" placeholder="Enter departure city/airport">
+                    <div class="autocomplete-list from-autocomplete"></div>
+                </div>
+                <div class="col-md-5">
+                    <label class="fw-bold text-white">To</label>
+                    <input type="text" class="form-control airport p-3 rounded" placeholder="Enter destination">
+                    <div class="autocomplete-list to-autocomplete"></div>
+                </div>
+                <div class="col-md-2">
+                    <label class="fw-bold text-white">Departure</label>
+                    <input type="date" class="form-control p-3 rounded">
+                </div>
+                 <div class="col-12 text-end mt-2">
+                <button type="button" class="btn btn-danger rounded-pill removeMultiCity">
+                    <i class="bi bi-x-lg"></i> Remove
+                </button>
+            </div>
+            </div>
+           
+        </div>
+        `;
+
+        $("#multiCityContainer").append(newRow);
+    });
+
+    // Remove multi-city input row when clicking "Remove"
+    $(document).on("click", ".removeMultiCity", function () {
+        $(this).closest(".multi-city-wrapper").remove();
+    });
+});
+
+    
+  
+        
+        document.addEventListener("DOMContentLoaded", function () {
+            function updateCount(button, isIncrement) {
+                let inputField = button.closest(".input-group").querySelector("input");
+                let currentValue = parseInt(inputField.value);
+                let minValue = parseInt(inputField.getAttribute("min") || 0);
+                let maxValue = parseInt(inputField.getAttribute("max") || 9);
+        
+                if (isIncrement) {
+                    if (currentValue < maxValue) {
+                        inputField.value = currentValue + 1;
+                    }
+                } else {
+                    if (currentValue > minValue) {
+                        inputField.value = currentValue - 1;
+                    }
+                }
+            }
+        
+            document.body.addEventListener("click", function (event) {
+                if (event.target.classList.contains("btn-minus")) {
+                    event.preventDefault(); // Prevent switching tabs
+                    updateCount(event.target, false);
+                } else if (event.target.classList.contains("btn-plus")) {
+                    event.preventDefault(); // Prevent switching tabs
+                    updateCount(event.target, true);
+                }
+            });
+        });
+        $(document).ready(function () {
+            const airportList = [
+            // India's Major Airports
+            { city: "Agartala", country: "India", code: "IXA", airport: "Maharaja Bir Bikram Airport" },
+            { city: "Ahmedabad", country: "India", code: "AMD", airport: "Sardar Vallabhbhai Patel International Airport" },
+            { city: "Amritsar", country: "India", code: "ATQ", airport: "Sri Guru Ram Das Ji International Airport" },
+            { city: "Ayodhya", country: "India", code: "AYJ", airport: "Maharishi Valmiki International Airport" },
+            { city: "Bengaluru", country: "India", code: "BLR", airport: "Kempegowda International Airport" },
+            { city: "Bhopal", country: "India", code: "BHO", airport: "Raja Bhoj Airport" },
+            { city: "Bhubaneswar", country: "India", code: "BBI", airport: "Biju Patnaik International Airport" },
+            { city: "Chennai", country: "India", code: "MAA", airport: "Chennai International Airport" },
+            { city: "Coimbatore", country: "India", code: "CJB", airport: "Coimbatore International Airport" },
+            { city: "Delhi NCR", country: "India", code: "DEL", airport: "Indira Gandhi International Airport" },
+            { city: "Noida (Delhi NCR)", country: "India", code: "JWR", airport: "Noida International Airport" },
+            { city: "Gaya", country: "India", code: "GAY", airport: "Gaya Airport" },
+            { city: "North Goa", country: "India", code: "GOX", airport: "Manohar International Airport" },
+            { city: "South Goa", country: "India", code: "GOI", airport: "Dabolim Airport" },
+            { city: "Guwahati", country: "India", code: "GAU", airport: "Lokpriya Gopinath Bordoloi International Airport" },
+            { city: "Hyderabad", country: "India", code: "HYD", airport: "Rajiv Gandhi International Airport" },
+            { city: "Imphal", country: "India", code: "IMF", airport: "Imphal Airport" },
+            { city: "Indore", country: "India", code: "IDR", airport: "Devi Ahilya Bai Holkar Airport" },
+            { city: "Jaipur", country: "India", code: "JAI", airport: "Jaipur International Airport" },
+            { city: "Jammu", country: "India", code: "IXJ", airport: "Jammu Airport" },
+            { city: "Kannur", country: "India", code: "CNN", airport: "Kannur International Airport" },
+            { city: "Kochi", country: "India", code: "COK", airport: "Cochin International Airport" },
+            { city: "Kolkata", country: "India", code: "CCU", airport: "Netaji Subhas Chandra Bose International Airport" },
+            { city: "Kozhikode", country: "India", code: "CCJ", airport: "Calicut International Airport" },
+            { city: "Lucknow", country: "India", code: "LKO", airport: "Chaudhary Charan Singh Airport" },
+            { city: "Madurai", country: "India", code: "IXM", airport: "Madurai Airport" },
+            { city: "Mangaluru", country: "India", code: "IXE", airport: "Mangaluru International Airport" },
+            { city: "Mumbai", country: "India", code: "BOM", airport: "Chhatrapati Shivaji Maharaj International Airport" },
+            { city: "Navi Mumbai", country: "India", code: "NMI", airport: "Navi Mumbai International Airport" },
+            { city: "Nagpur", country: "India", code: "NAG", airport: "Dr. Babasaheb Ambedkar International Airport" },
+            { city: "Nashik", country: "India", code: "ISK", airport: "Nashik Airport" },
+            { city: "Pune", country: "India", code: "PNQ", airport: "Pune Airport" },
+            { city: "Ranchi", country: "India", code: "IXR", airport: "Birsa Munda Airport" },
+            { city: "Siliguri", country: "India", code: "IXB", airport: "Bagdogra International Airport" },
+            { city: "Srinagar", country: "India", code: "SXR", airport: "Srinagar Airport" },
+            { city: "Surat", country: "India", code: "STV", airport: "Surat Airport" },
+            { city: "Thiruvananthapuram", country: "India", code: "TRV", airport: "Trivandrum International Airport" },
+            { city: "Tiruchirappalli", country: "India", code: "TRZ", airport: "Tiruchirappalli International Airport" },
+            { city: "Tirupati", country: "India", code: "TIR", airport: "Tirupati International Airport" },
+            { city: "Vadodara", country: "India", code: "BDQ", airport: "Vadodara Airport" },
+            { city: "Varanasi", country: "India", code: "VNS", airport: "Lal Bahadur Shastri Airport" },
+            { city: "Vijayawada", country: "India", code: "VGA", airport: "Vijayawada International Airport" },
+            { city: "Visakhapatnam", country: "India", code: "VTZ", airport: "Visakhapatnam International Airport" },
+        
+            // Major Airports from Other Countries (One per Country)
+            { city: "Kabul", country: "Afghanistan", code: "KBL", airport: "Hamid Karzai International Airport" },
+            { city: "Tirana", country: "Albania", code: "TIA", airport: "Tirana International Airport Nënë Tereza" },
+            { city: "Algiers", country: "Algeria", code: "ALG", airport: "Houari Boumediene Airport" },
+            { city: "Andorra la Vella", country: "Andorra", code: "ALV", airport: "Andorra–La Seu d'Urgell Airport" },
+            { city: "Luanda", country: "Angola", code: "LAD", airport: "Quatro de Fevereiro Airport" },
+           
+        ]
+         
+        
+        
+            function setupAutocomplete(inputSelector, listClass) {
+                $(inputSelector).on("input", function () {
+                    let inputValue = $(this).val().toLowerCase();
+                    let listContainer = $(this).siblings("." + listClass);
+                    listContainer.empty();
+        
+                    if (inputValue.length < 1) return;
+        
+                    let filteredAirports = airportList.filter(airport =>
+                        airport.city.toLowerCase().includes(inputValue) || 
+                        airport.code.toLowerCase().includes(inputValue) || 
+                        airport.airport.toLowerCase().includes(inputValue)
+                    );
+        
+                    filteredAirports.forEach(airport => {
+                        let item = $(`
+                            <div class="autocomplete-item" data-code="${airport.code}">
+                                <strong>${airport.city}, ${airport.country} (${airport.code})</strong><br>
+                                <small>${airport.airport}</small>
+                            </div>
+                        `);
+        
+                        item.on("click", function () {
+                            $(inputSelector).val(`${airport.city} (${airport.code})`);
+                            listContainer.empty();
+                        });
+        
+                        listContainer.append(item);
+                    });
+                });
+        
+                $(document).on("click", function (event) {
+                    if (!$(event.target).closest(inputSelector).length) {
+                        $("." + listClass).empty();
+                    }
+                });
+            }
+        
+            setupAutocomplete("#fromOneWay", "from-autocomplete");
+            setupAutocomplete("#toOneWay", "to-autocomplete");
+            setupAutocomplete("#fromRounded", "from-autocomplete");
+            setupAutocomplete("#toRounded", "to-autocomplete");
+            setupAutocomplete("#fromMultiCity", "from-autocomplete");
+            setupAutocomplete("#toMultiCity", "to-autocomplete");
+        });
+        
+            </script>
+        
+       
+  
+    </section>
+   
+    </section>
+    <section>
+        <section class="container-fluid" style="background-color: #ffffff; padding: 50px;">
+            <!-- Emirates Banner -->
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="bg-white rounded shadow-sm d-flex flex-column flex-md-row align-items-center justify-content-between p-3" style="height: auto;">
+                            <img src="./4955117_31112.jpg" alt="Emirates" class="img-fluid mb-3 mb-md-0" style="border-top-right-radius: 100px; border-bottom-right-radius: 100px; width: 100%; max-width: 300px;">
+                            <div class="text-center text-md-start">
+                                <h3><strong>Experience <span style="color: red;">Emirates Airline</span> with Our Service</strong></h3>
+                                <p class="text-muted">Redefine Elegance in the Skies With Our Premium Airline Partner</p>
+                                <a href="#" class="btn btn-outline-primary">VIEW EMIRATES STORE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Hyatt Offer -->
+            <div class="container mt-3">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="p-3 bg-white rounded shadow-sm d-flex flex-column flex-md-row align-items-center justify-content-between">
+                            <div class="d-flex flex-column flex-md-row align-items-center">
+                                <img src="./10780489_19199474.jpg" class="img-fluid me-md-3 mb-3 mb-md-0" style="height: 100px;" alt="Hyatt">
+                                <p class="mb-0 fw-bold text-center text-md-start">
+                                    Enjoy the India Staycation Package at Hyatt Hotels with 2 Meal Promotions & More Than 10% OFF* on F&B.
+                                </p>
+                            </div>
+                            <div class="text-center text-md-end">
+                                <a href="#" class="btn btn-primary">BOOK NOW</a>
+                                <span class="badge bg-success">Sponsored</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <div class="container mt-4 p-4 bg-white shadow-sm rounded">
+                <div class="row align-items-center text-center text-md-start">
+                    <!-- Left Side Image -->
+                    <div class="col-md-3 mb-3 mb-md-0 text-center">
+                        <img src="./10117872_4354179.jpg" style="height: 100px; width: 100%; max-width: 150px;" alt="Spring Deals" class="img-fluid rounded">
+                    </div>
+        
+                    <!-- Right Side Text -->
+                    <div class="col-md-9">
+                        <h4 class="fw-bold">Book cheap spring flight deals</h4>
+                        <p class="text-muted m-0">Your happy place just got more affordable. Save up to <strong>$100</strong> on our fees.</p>
+                    </div>
+                </div>
+        
+                <!-- Promo Cards Section -->
+                <div class="row mt-4 text-center">
+                    <!-- Card 1 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="border rounded p-3">
+                            <p class="mb-2">Save up to <strong>$40</strong> on our fees on flights.</p>
+                            <img src="./cityscape-singapore.jpg" class="img-fluid" alt="Flight Icon">
+                            <div class="mt-2">
+                                <a href="#" class="btn btn-outline-primary">Get Promo Code</a>
+                                <small class="d-block mt-1"><a href="#" class="text-muted text-decoration-none">Learn more</a></small>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Card 2 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="border rounded p-3">
+                            <p class="mb-2">Save up to <strong>$100</strong> on our fees when booking Flight</p>
+                            <img src="./cityscape-singapore.jpg" class="img-fluid" alt="Hotel Icon">
+                            <div class="mt-2">
+                                <a href="#" class="btn btn-outline-primary">Get Promo Code</a>
+                                <small class="d-block mt-1"><a href="#" class="text-muted text-decoration-none">Learn more</a></small>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Card 3 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="border rounded p-3">
+                            <p class="mb-2">Save up to <strong>$20</strong> on our fees on car rental deals.</p>
+                            <img src="./cityscape-singapore.jpg" class="img-fluid" alt="Car Rental Icon">
+                            <div class="mt-2">
+                                <a href="#" class="btn btn-outline-primary">Get Promo Code</a>
+                                <small class="d-block mt-1"><a href="#" class="text-muted text-decoration-none">Learn more</a></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+            <section>
+                <div class="container mt-4">
+                    <!-- Recommended Trips Section -->
+                    <h4 class="fw-bold">Recommended for your next trip</h4>
+                    <p class="text-muted">Based on your most recent searches or your location</p>
+            
+                    <div class="row">
+                        <!-- Trip Card 1 -->
+                        <div class="col-md-4">
+                            <div class="card shadow-sm border-0 rounded">
+                                <img src="./5603497_1847.jpg" class="card-img-top img-fluid" alt="Dubai">
+                                <div class="card-body">
+                                    <h5 class="fw-bold">Dubai</h5>
+                                    <p class="text-muted m-0">DEL – DXB</p>
+                                    <p class="text-muted">Aug 21 - Sep 04</p>
+                                    <h5 class="text-success fw-bold">$332.61*</h5>
+                                    <p class="text-muted">Round Trip</p>
+                                    <div class="progress mt-2" style="height: 5px;">
+                                        <div class="progress-bar bg-warning" style="width: 80%;"></div>
+                                    </div>
+                                    <small class="text-muted">$355 - $365</small>
+                                    <p class="text-primary mt-2">Similar trip cost to Dubai</p>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- Trip Card 2 -->
+                        <div class="col-md-4">
+                            <div class="card shadow-sm border-0 rounded">
+                                <img src="./5603497_1847.jpg" class="card-img-top img-fluid" alt="San Francisco">
+                                <div class="card-body">
+                                    <h5 class="fw-bold">San Francisco</h5>
+                                    <p class="text-muted m-0">DEL – SFO</p>
+                                    <p class="text-muted">Jun 03 - Aug 31</p>
+                                    <h5 class="text-success fw-bold">$823.99*</h5>
+                                    <p class="text-muted">Round Trip</p>
+                                    <div class="progress mt-2" style="height: 5px;">
+                                        <div class="progress-bar bg-warning" style="width: 60%;"></div>
+                                    </div>
+                                    <small class="text-muted">$937 - $1,052</small>
+                                    <p class="text-primary mt-2">Similar trip cost to San Francisco</p>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- Trip Card 3 -->
+                        <div class="col-md-4">
+                            <div class="card shadow-sm border-0 rounded">
+                                <img src="./5603497_1847.jpg" class="card-img-top img-fluid" alt="Toronto">
+                                <div class="card-body">
+                                    <h5 class="fw-bold">Toronto</h5>
+                                    <p class="text-muted m-0">DEL – YTO</p>
+                                    <p class="text-muted">Oct 11 - Nov 24</p>
+                                    <h5 class="text-success fw-bold">$862.99*</h5>
+                                    <p class="text-muted">Round Trip</p>
+                                    <div class="progress mt-2" style="height: 5px;">
+                                        <div class="progress-bar bg-warning" style="width: 50%;"></div>
+                                    </div>
+                                    <small class="text-muted">$1,318 - $1,668</small>
+                                    <p class="text-primary mt-2">Similar trip cost to Toronto</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Why Travelers Choose Us -->
+                    <div class="mt-5">
+                        <h4 class="fw-bold">Here's why travelers choose CheapOair</h4>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="text-success fw-bold">✔ Get Great Deals!</p>
+                                <p class="text-muted">Choose from 500+ airlines for low airfares!</p>
+                            </div>
+                            <div class="col-md-3">
+                                <p class="text-success fw-bold">✔ Price Match Promise</p>
+                                <p class="text-muted">Find low prices to destinations worldwide.</p>
+                            </div>
+                            <div class="col-md-3">
+                                <p class="text-success fw-bold">✔ Easy Cancellations with CheapOair</p>
+                                <p class="text-muted">Convenient self-service options available online.</p>
+                            </div>
+                            <div class="col-md-3">
+                                <p class="text-success fw-bold">✔ Expert Guidance</p>
+                                <p class="text-muted">Get personalized assistance from our travel experts.</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Phone Deals -->
+                    <div class="mt-4">
+                        <h4 class="fw-bold">Don't Miss These Round Trip Fares *</h4>
+                        <p class="text-muted">Call us for phone only deals at <span class="text-success fw-bold">000-800-050-3540</span></p>
+                    </div>
+                </div>
+            </section>
+            <section  style="background-color: #f8f9fa; color: #000000; font-family: Arial, sans-serif;">
+                <div class="container mt-4 p-4 bg-white shadow-sm rounded">
+                    <h4 class="fw-bold">Why to Book Our Service</h4>
+                    <div class="row text-center mt-3">
+                        <!-- Feature 1 -->
+                        <div class="col-md-3 d-flex flex-column align-items-center">
+                            <img src="https://cdn-icons-png.flaticon.com/128/3209/3209932.png" width="50" alt="Live Agents">
+                            <p class="mt-2 mb-0">Personalized experience</p>
+                            <p class="fw-bold">by our live agents</p>
+                        </div>
+                        <!-- Feature 2 -->
+                        <div class="col-md-3 d-flex flex-column align-items-center">
+                            <img src="https://cdn-icons-png.flaticon.com/128/3050/3050525.png" width="50" alt="Booking Confirmation">
+                            <p class="mt-2 mb-0">Immediate</p>
+                            <p class="fw-bold">booking confirmation</p>
+                        </div>
+                        <!-- Feature 3 -->
+                        <div class="col-md-3 d-flex flex-column align-items-center">
+                            <img src="https://cdn-icons-png.flaticon.com/128/7486/7486956.png" width="50" alt="24-Hour Cancellation">
+                            <p class="mt-2 mb-0">24-hour</p>
+                            <p class="fw-bold">cancellation</p>
+                        </div>
+                        <!-- Feature 4 -->
+                        <div class="col-md-3 d-flex flex-column align-items-center">
+                            <img src="https://cdn-icons-png.flaticon.com/128/6813/6813699.png" width="50" alt="Flexible Payment">
+                            <p class="mt-2 mb-0 fw-bold">Flexible payment</p>
+                            <p>plans</p>
+                        </div>
+                    </div>
+                </div>
+            
+            </section>
+            <!-- Swiper Container -->
+            <section style="background-color: #f8f9fa; color: #000000; font-family: Arial, sans-serif;" class="mt-4 d-flex justify-content-center align-items-center flex-row">
+                <div class="container mt-4 p-4 bg-white shadow-sm rounded" style="box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+                    <h4 class="fw-bold">What Our Customers Say About Our Service?</h4>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Sitejabber_logo.svg/2560px-Sitejabber_logo.svg.png" 
+                                 alt="Sitejabber" width="120">
+                            <div class="d-flex align-items-center mt-2">
+                                <span style="color: #ffc107; font-size: 18px;">⭐⭐⭐⭐⭐</span>
+                                <span class="ms-2 fw-bold">Excellent | 4 Stars</span>
+                            </div>
+                            <p class="text-muted small mb-0">Based on 233,423 reviews</p>
+                        </div>
+                        <button class="btn btn-outline-primary">Submit A Review</button>
+                    </div>
+            
+                    <!-- Scrollable Review Section -->
+                    <div class="review-container">
+                        <!-- 12 Review Cards -->
+                        <div class="review-card">
+                            <span style="color: #ffc107;">⭐⭐⭐⭐⭐</span>
+                            <p class="fw-bold mb-1">Judy Foxworth</p>
+                            <p class="fw-bold small text-primary">Seattle from Vegas</p>
+                            <p class="text-muted small">I have not used Cheapoair for a while, I am happy to say it was a Great Trip!!!</p>
+                            <a href="#" class="text-primary small">Read More</a>
+                        </div>
+            
+                        <div class="review-card">
+                            <span style="color: #ffc107;">⭐⭐⭐⭐⭐</span>
+                            <p class="fw-bold mb-1">Janet Smith</p>
+                            <p class="fw-bold small text-primary">Flight to San Juan</p>
+                            <p class="text-muted small">Easy check-in flight was great. Communications were excellent with CheapOair.</p>
+                        </div>
+            
+                        <div class="review-card">
+                            <span style="color: #ffc107;">⭐⭐⭐⭐⭐</span>
+                            <p class="fw-bold mb-1">Nawarat Vichien</p>
+                            <p class="fw-bold small text-primary">Great Fare</p>
+                            <p class="text-muted small">Great fare helped me to get a good price from the airline.</p>
+                        </div>
+            
+                        <!-- Duplicate Cards to Make 12 -->
+                        <div class="review-card">
+                            <span style="color: #ffc107;">⭐⭐⭐⭐⭐</span>
+                            <p class="fw-bold mb-1">Michael Brown</p>
+                            <p class="fw-bold small text-primary">Smooth Experience</p>
+                            <p class="text-muted small">The booking process was simple and hassle-free. Will book again!</p>
+                        </div>
+            
+                        <div class="review-card">
+                            <span style="color: #ffc107;">⭐⭐⭐⭐⭐</span>
+                            <p class="fw-bold mb-1">Sarah Connor</p>
+                            <p class="fw-bold small text-primary">Wonderful Trip</p>
+                            <p class="text-muted small">Great service! My travel experience was seamless.</p>
+                        </div>
+            
+                        <div class="review-card">
+                            <span style="color: #ffc107;">⭐⭐⭐⭐⭐</span>
+                            <p class="fw-bold mb-1">Emily Watson</p>
+                            <p class="fw-bold small text-primary">Great Customer Support</p>
+                            <p class="text-muted small">I had some issues, but the support team resolved them quickly.</p>
+                        </div>
+            
+                        <div class="review-card">
+                            <span style="color: #ffc107;">⭐⭐⭐⭐⭐</span>
+                            <p class="fw-bold mb-1">James Robert</p>
+                            <p class="fw-bold small text-primary">Affordable Prices</p>
+                            <p class="text-muted small">I got a great deal on my flight. Highly recommended!</p>
+                        </div>
+            
+                        <div class="review-card">
+                            <span style="color: #ffc107;">⭐⭐⭐⭐⭐</span>
+                            <p class="fw-bold mb-1">Sophia Johnson</p>
+                            <p class="fw-bold small text-primary">Fast and Easy</p>
+                            <p class="text-muted small">Everything was quick and easy, from booking to boarding.</p>
+                        </div>
+            
+                        <div class="review-card">
+                            <span style="color: #ffc107;">⭐⭐⭐⭐⭐</span>
+                            <p class="fw-bold mb-1">David Martinez</p>
+                            <p class="fw-bold small text-primary">Amazing Service</p>
+                            <p class="text-muted small">Would definitely book again. The customer service was top-notch.</p>
+                        </div>
+            
+                        <div class="review-card">
+                            <span style="color: #ffc107;">⭐⭐⭐⭐⭐</span>
+                            <p class="fw-bold mb-1">Olivia Wilson</p>
+                            <p class="fw-bold small text-primary">Very Reliable</p>
+                            <p class="text-muted small">Reliable service. Flights were on time, and everything went smoothly.</p>
+                        </div>
+            
+                        <div class="review-card">
+                            <span style="color: #ffc107;">⭐⭐⭐⭐⭐</span>
+                            <p class="fw-bold mb-1">Henry Clark</p>
+                            <p class="fw-bold small text-primary">Will Book Again</p>
+                            <p class="text-muted small">Excellent booking experience. Prices were the best online.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Inline CSS for Scrollable Cards -->
+            <style>
+                .review-container {
+                    display: flex;
+                    overflow-x: auto;
+                    gap: 20px;
+                    padding: 20px 0;
+                    white-space: nowrap;
+                    scrollbar-width: thin;
+                    scrollbar-color: #ccc #f8f9fa;
+                }
+            
+                .review-card {
+                    min-width: 300px;
+                    background: white;
+                    border-radius: 8px;
+                    padding: 20px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                    flex-shrink: 0;
+                }
+            
+                /* Custom Scrollbar (Optional) */
+                .review-container::-webkit-scrollbar {
+                    height: 6px;
+                }
+                
+                .review-container::-webkit-scrollbar-track {
+                    background: #f8f9fa;
+                }
+                
+                .review-container::-webkit-scrollbar-thumb {
+                    background: #ccc;
+                    border-radius: 10px;
+                }
+            </style>
+<section class="newsletter-section py-5 bg-light">
+    <div class="container text-center">
+        <div class="d-flex justify-content-center align-items-center">
+            <img src="https://cdn-icons-png.flaticon.com/128/747/747310.png" width="50" class="me-2" alt="Email Icon">
+            <h3 class="fw-bold mb-0">Sign up today and never miss another deal again!</h3>
+        </div>
+
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="email" class="form-control" placeholder="Get Latest Emails" aria-label="Email">
+                    <button class="btn btn-primary">Call Requiest</button>
+                </div>
+                <p class="small text-muted mt-2">
+                    By entering your email address, you agree to our service 
+                    <a href="#" class="text-primary">Terms and Conditions</a>, 
+                    <a href="#" class="text-primary">Privacy Policy</a>, and agree to receive marketing emails.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Custom CSS -->
+<style>
+    .newsletter-section {
+        background: #f8f9fa;
+    }
+    .form-control {
+        border-radius: 6px;
+    }
+    .btn-primary {
+        border-radius: 6px;
+    }
+</style>
+    
+            
+<footer style="background-color: #002147; color: white; padding: 30px 0; font-family: Arial, sans-serif;">
+    <div style="width: 90%; max-width: 1200px; margin: auto;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+            
+            <!-- Easy Access -->
+            <div style="width: 22%; min-width: 200px; margin-bottom: 20px;">
+                <h3 style="font-size: 18px; margin-bottom: 10px;">Easy Access</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Popular Airlines</a></li>
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Popular Flight Routes</a></li>
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Top Destinations</a></li>
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Site Directories</a></li>
+                </ul>
+            </div>
+
+            <!-- Booking -->
+            <div style="width: 22%; min-width: 200px; margin-bottom: 20px;">
+                <h3 style="font-size: 18px; margin-bottom: 10px;">Book</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Cheap Flights</a></li>
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Cheap Hotels</a></li>
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Car Rentals</a></li>
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Vacation Packages</a></li>
+                </ul>
+            </div>
+
+            <!-- Traveler Tools -->
+            <div style="width: 22%; min-width: 200px; margin-bottom: 20px;">
+                <h3 style="font-size: 18px; margin-bottom: 10px;">Traveler Tools</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Gift Cards</a></li>
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Check My Booking</a></li>
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Customer Support</a></li>
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Online Check-in</a></li>
+                </ul>
+            </div>
+
+            <!-- Connect & Legal -->
+            <div style="width: 22%; min-width: 200px; margin-bottom: 20px;">
+                <h3 style="font-size: 18px; margin-bottom: 10px;">Connect with Us</h3>
+                <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                    <a href="#" style="color: white; font-size: 20px;"><i class="fab fa-facebook"></i></a>
+                    <a href="#" style="color: white; font-size: 20px;"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="color: white; font-size: 20px;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color: white; font-size: 20px;"><i class="fab fa-tiktok"></i></a>
+                </div>
+                <h3 style="font-size: 18px; margin-bottom: 10px;">Legal</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Privacy Policy</a></li>
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Terms & Conditions</a></li>
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Refund Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Payment Methods -->
+        <div style="text-align: center; margin-top: 20px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Visa.svg/120px-Visa.svg.png" style="width: 50px; margin: 5px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/MasterCard_Logo.svg/120px-MasterCard_Logo.svg.png" style="width: 50px; margin: 5px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/PayPal.svg/120px-PayPal.svg.png" style="width: 50px; margin: 5px;">
+        </div>
+
+        <!-- Copyright -->
+        <div style="text-align: center; color: #aaa; font-size: 14px; margin-top: 15px;">
+            © 2025 FlightBooking Inc. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+<!-- FontAwesome Icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+            
+    </section>
+
+   
+        
+    <div id="phone-deal-card" class="floating-card">
+        <div class="d-flex align-items-center">
+            <img src="https://cdn-icons-png.flaticon.com/128/4140/4140047.png" alt="Agent" class="agent-img">
+            <div class="ms-2">
+                <p class="mb-0 fw-bold">Phone-Only Deals! <span class="text-success">Use promo code <b>PHONE50</b> and save.</span></p>
+                <p class="mb-0">Call us 24/7 at <a href="tel:0008000503540" class="text-success fw-bold">000123456789</a> <a href="#" class="text-primary small">Learn more</a></p>
+            </div>
+            <button class="close-btn" onclick="document.getElementById('phone-deal-card').style.display='none'">✖</button>
+        </div>
+    </div>
+    
+    <!-- Custom CSS -->
+    <style>
+        .floating-card {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: white;
+            padding: 12px 16px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            max-width: 400px;
+            z-index: 1000;
+            animation: vibrateCard 0.2s infinite linear;
+        }
+    
+        /* Vibrating Animation */
+        @keyframes vibrateCard {
+            0% { transform: translate(0, 0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(2px, -2px); }
+            60% { transform: translate(-2px, -2px); }
+            80% { transform: translate(2px, 2px); }
+            100% { transform: translate(0, 0); }
+        }
+    
+        .agent-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #4CAF50;
+        }
+    
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            margin-left: auto;
+        }
+    </style>
+    
+    
+    
+    
+</body>
+</html>

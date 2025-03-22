@@ -1,0 +1,380 @@
+<section  style="  background-image: url(./images/banner.jpg); height: 100vh; background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; display: flex; align-items: center; justify-content: center ;" >
+    <div class="banner-main container"  style="padding: 50px;">
+       
+       
+          
+          <div class="form-section">
+              <ul class="nav nav-tabs" id="tripTabs">
+                  <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#oneway">One Way</a></li>
+                  <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#roundtrip">Round Trip</a></li>
+                  <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#multicity">Multi-City</a></li>
+              </ul>
+  
+              <div class="tab-content mt-3">
+                  <div id="oneway" class="tab-pane fade show active">
+                      <form id="oneWayForm" class="row g-3">
+                          <div class="col-md-6">
+                              <label>From</label>
+                              <input type="text" class="form-control airport" id="fromOneWay" placeholder="Enter departure city/airport">
+                              <div class="autocomplete-list from-autocomplete" ></div>
+
+                          </div>
+                          <div class="col-md-6">
+                              <label>To</label>
+                              <input type="text" class="form-control airport" id="toOneWay" placeholder="Enter destination">
+                              <div class="autocomplete-list to-autocomplete" ></div>
+                          </div>
+                          <div class="col-md-6">
+                              <label>Departure Date</label>
+                              <input type="date" class="form-control">
+                          </div>
+                          <div class="row">
+                              <div class="col-md-4">
+                                  <label>Adults <small>(Aged 12+ yrs)</small></label>
+                                  <div class="input-group">
+                                      <button class="btn btn-outline-secondary btn-minus">-</button>
+                                      <input type="text" class="form-control text-center" style="width: 20px;" value="1" min="1" max="9" readonly>
+                                      <button class="btn btn-outline-secondary btn-plus">+</button>
+                                  </div>
+                              </div>
+                              <div class="col-md-4">
+                                  <label>Children <small>(Aged 2-12 yrs)</small></label>
+                                  <div class="input-group">
+                                      <button class="btn btn-outline-secondary btn-minus">-</button>
+                                      <input type="text" class="form-control text-center" style="width: 20px;" value="0" min="0" max="9" readonly>
+                                      <button class="btn btn-outline-secondary btn-plus">+</button>
+                                  </div>
+                              </div>
+                              <div class="col-md-4">
+                                  <label>Infants <small>(Below 2 yrs)</small></label>
+                                  <div class="input-group">
+                                      <button class="btn btn-outline-secondary btn-minus">-</button>
+                                      <input type="text" class="form-control text-center" style="width: 20px;" value="0" min="0" max="9" readonly>
+                                      <button class="btn btn-outline-secondary btn-plus">+</button>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                          <div class="col-md-6">
+                              <button type="submit" class="search-btn mt-4">Search Flights</button>
+                          </div>
+                      </form>
+                  </div>
+                  
+                  <div id="roundtrip" class="tab-pane fade">
+                      <form id="roundTripForm" class="row g-3">
+                          <div class="col-md-6">
+                              <label>From</label>
+                              <input type="text" class="form-control airport" id="fromRounded" placeholder="Enter departure city/airport">
+                              <div class="autocomplete-list from-autocomplete"></div>
+                          </div>
+                          <div class="col-md-6">
+                              <label>To</label>
+                              <input type="text" class="form-control airport" id="toRounded" placeholder="Enter destination">
+                              <div class="autocomplete-list to-autocomplete"></div>
+                          </div>
+                          <div class="col-md-6">
+                              <label>Departure Date</label>
+                              <input type="date" class="form-control">
+                          </div>
+                          <div class="col-md-6">
+                              <label>Return Date</label>
+                              <input type="date" class="form-control">
+                          </div>
+                          <div class="row">
+                              <div class="col">
+                                  <label>Adults <small>(Aged 12+ yrs)</small></label>
+                                  <div class="input-group">
+                                      <button class="btn btn-outline-secondary btn-minus">-</button>
+                                      <input type="text" class="form-control text-center" style="width: 20px;" value="1" min="1" max="9" readonly>
+                                      <button class="btn btn-outline-secondary btn-plus">+</button>
+                                  </div>
+                              </div>
+                              <div class="col">
+                                  <label>Children <small>(Aged 2-12 yrs)</small></label>
+                                  <div class="input-group">
+                                      <button class="btn btn-outline-secondary btn-minus">-</button>
+                                      <input type="text" class="form-control text-center" style="width: 20px;" value="0" min="0" max="9" readonly>
+                                      <button class="btn btn-outline-secondary btn-plus">+</button>
+                                  </div>
+                              </div>
+                              <div class="col">
+                                  <label>Infants <small>(Below 2 yrs)</small></label>
+                                  <div class="input-group">
+                                      <button class="btn btn-outline-secondary btn-minus">-</button>
+                                      <input type="text" class="form-control text-center" style="width: 20px;" value="0" min="0" max="9" readonly>
+                                      <button class="btn btn-outline-secondary btn-plus">+</button>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                          <div class="col-12">
+                              <button type="submit" class="search-btn">Search Flights</button>
+                          </div>
+                      </form>
+                  </div>
+                  
+                  <div id="multicity" class="tab-pane fade">
+                      <form id="multiCityForm" class="row g-3">
+                          <div id="multiCityContainer">
+                              <div class="multi-city-row row g-3">
+                                  <div class="col-md-5">
+                                      <label>From</label>
+                                      <input type="text" class="form-control airport" id="fromMultiCity" placeholder="Enter departure city/airport">
+                                      <div class="autocomplete-list from-autocomplete"></div>
+                                  </div>
+                                  <div class="col-md-5">
+                                      <label>To</label>
+                                      <input type="text" class="form-control airport" id="toMultiCity" placeholder="Enter destination">
+                                      <div class="autocomplete-list to-autocomplete"></div>
+                                  </div>
+                                  <div class="col-md-2">
+                                      <label>Departure</label>
+                                      <input type="date" class="form-control">
+                                  </div>
+  
+                                  <div class="col-12 mt-3">
+                                      <button type="button" id="addMultiCity" class="btn btn-primary">Add Another</button>
+                                  </div>
+                              
+                                  <!-- Empty div for alignment -->
+                                  <div style="width: 100%; height: 10px;"></div>
+                              
+                                  <!-- Travellers & Class Section -->
+                                 
+                              </div>
+                               <div class="col-md-12">
+                                      <label>Travellers & Class</label>
+                                      <div class="travellers-class-container border p-3 rounded">
+                                          <div class="mb-3">
+                                              <strong>1 Adult</strong>
+                                              <span class="text-muted d-block">Economy</span>
+                                          </div>
+                              
+                                          <div class="row">
+                                              <div class="col">
+                                                  <label>Adults <small>(Aged 12+ yrs)</small></label>
+                                                  <div class="input-group">
+                                                      <button class="btn btn-outline-secondary btn-minus">-</button>
+                                                      <input type="text" class="form-control text-center" style="width: 20px;" value="1" min="1" max="9" readonly>
+                                                      <button class="btn btn-outline-secondary btn-plus">+</button>
+                                                  </div>
+                                              </div>
+                                              <div class="col">
+                                                  <label>Children <small>(Aged 2-12 yrs)</small></label>
+                                                  <div class="input-group">
+                                                      <button class="btn btn-outline-secondary btn-minus">-</button>
+                                                      <input type="text" class="form-control text-center" style="width: 20px;" value="0" min="0" max="9" readonly>
+                                                      <button class="btn btn-outline-secondary btn-plus">+</button>
+                                                  </div>
+                                              </div>
+                                              <div class="col">
+                                                  <label>Infants <small>(Below 2 yrs)</small></label>
+                                                  <div class="input-group">
+                                                      <button class="btn btn-outline-secondary btn-minus">-</button>
+                                                      <input type="text" class="form-control text-center" style="width: 20px;" value="0" min="0" max="9" readonly>
+                                                      <button class="btn btn-outline-secondary btn-plus">+</button>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          
+                              
+                                          <div class="mt-3">
+                                              <label>Travel Class</label>
+                                              <div class="d-flex">
+                                                  <div class="form-check me-3">
+                                                      <input class="form-check-input" type="radio" name="travelClass" id="economy" value="Economy" hidden checked>
+                                                      <label class="form-check-label btn btn-primary travel-class-btn" for="economy">Economy</label>
+                                                  </div>
+                                                  <div class="form-check me-3">
+                                                      <input class="form-check-input" type="radio" name="travelClass" id="premiumEconomy" hidden value="Premium Economy">
+                                                      <label class="form-check-label btn btn-outline-secondary travel-class-btn" for="premiumEconomy">Premium Economy</label>
+                                                  </div>
+                                                  <div class="form-check me-3">
+                                                      <input class="form-check-input" type="radio" name="travelClass" id="business" hidden value="Business">
+                                                      <label class="form-check-label btn btn-outline-secondary travel-class-btn"  for="business">Business</label>
+                                                  </div>
+                                                  <div class="form-check">
+                                                      <input class="form-check-input" type="radio" name="travelClass" id="firstClass" hidden value="First Class">
+                                                      <label class="form-check-label btn btn-outline-secondary travel-class-btn" for="firstClass">First Class</label>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          
+                              
+                                         
+                                      </div>
+                                  </div>
+                              
+                          </div>
+                          
+                         
+                          <div class="col-12">
+                              <button type="submit" class="search-btn">Search Flights</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <script>
+         $(document).ready(function () {
+      $("#addMultiCity").click(function (event) {
+          event.preventDefault(); // Prevent unintended form submission
+          let newRow = `
+          <div class="multi-city-row row g-3 mt-2">
+              <div class="col-md-6">
+                                      <label>From</label>
+                                      <input type="text" class="form-control airport" id="fromOneWay" placeholder="Enter departure city/airport">
+                                      <div id="fromAutocompleteList" class="autocomplete-list"></div>
+                                  </div>
+                                  <div class="col-md-6">
+                                      <label>To</label>
+                                      <input type="text" class="form-control airport" id="toOneWay" placeholder="Enter destination">
+                                      <div id="toAutocompleteList" class="autocomplete-list"></div>
+                                  </div>
+              <div class="col-md-2">
+                  <input type="date" class="form-control">
+              </div>
+          </div>`;
+          $("#multiCityContainer").append(newRow);
+      });
+  });
+  
+  document.addEventListener("DOMContentLoaded", function () {
+      function updateCount(button, isIncrement) {
+          let inputField = button.closest(".input-group").querySelector("input");
+          let currentValue = parseInt(inputField.value);
+          let minValue = parseInt(inputField.getAttribute("min") || 0);
+          let maxValue = parseInt(inputField.getAttribute("max") || 9);
+  
+          if (isIncrement) {
+              if (currentValue < maxValue) {
+                  inputField.value = currentValue + 1;
+              }
+          } else {
+              if (currentValue > minValue) {
+                  inputField.value = currentValue - 1;
+              }
+          }
+      }
+  
+      document.body.addEventListener("click", function (event) {
+          if (event.target.classList.contains("btn-minus")) {
+              event.preventDefault(); // Prevent switching tabs
+              updateCount(event.target, false);
+          } else if (event.target.classList.contains("btn-plus")) {
+              event.preventDefault(); // Prevent switching tabs
+              updateCount(event.target, true);
+          }
+      });
+  });
+  $(document).ready(function () {
+      const airportList = [
+      // India's Major Airports
+      { city: "Agartala", country: "India", code: "IXA", airport: "Maharaja Bir Bikram Airport" },
+      { city: "Ahmedabad", country: "India", code: "AMD", airport: "Sardar Vallabhbhai Patel International Airport" },
+      { city: "Amritsar", country: "India", code: "ATQ", airport: "Sri Guru Ram Das Ji International Airport" },
+      { city: "Ayodhya", country: "India", code: "AYJ", airport: "Maharishi Valmiki International Airport" },
+      { city: "Bengaluru", country: "India", code: "BLR", airport: "Kempegowda International Airport" },
+      { city: "Bhopal", country: "India", code: "BHO", airport: "Raja Bhoj Airport" },
+      { city: "Bhubaneswar", country: "India", code: "BBI", airport: "Biju Patnaik International Airport" },
+      { city: "Chennai", country: "India", code: "MAA", airport: "Chennai International Airport" },
+      { city: "Coimbatore", country: "India", code: "CJB", airport: "Coimbatore International Airport" },
+      { city: "Delhi NCR", country: "India", code: "DEL", airport: "Indira Gandhi International Airport" },
+      { city: "Noida (Delhi NCR)", country: "India", code: "JWR", airport: "Noida International Airport" },
+      { city: "Gaya", country: "India", code: "GAY", airport: "Gaya Airport" },
+      { city: "North Goa", country: "India", code: "GOX", airport: "Manohar International Airport" },
+      { city: "South Goa", country: "India", code: "GOI", airport: "Dabolim Airport" },
+      { city: "Guwahati", country: "India", code: "GAU", airport: "Lokpriya Gopinath Bordoloi International Airport" },
+      { city: "Hyderabad", country: "India", code: "HYD", airport: "Rajiv Gandhi International Airport" },
+      { city: "Imphal", country: "India", code: "IMF", airport: "Imphal Airport" },
+      { city: "Indore", country: "India", code: "IDR", airport: "Devi Ahilya Bai Holkar Airport" },
+      { city: "Jaipur", country: "India", code: "JAI", airport: "Jaipur International Airport" },
+      { city: "Jammu", country: "India", code: "IXJ", airport: "Jammu Airport" },
+      { city: "Kannur", country: "India", code: "CNN", airport: "Kannur International Airport" },
+      { city: "Kochi", country: "India", code: "COK", airport: "Cochin International Airport" },
+      { city: "Kolkata", country: "India", code: "CCU", airport: "Netaji Subhas Chandra Bose International Airport" },
+      { city: "Kozhikode", country: "India", code: "CCJ", airport: "Calicut International Airport" },
+      { city: "Lucknow", country: "India", code: "LKO", airport: "Chaudhary Charan Singh Airport" },
+      { city: "Madurai", country: "India", code: "IXM", airport: "Madurai Airport" },
+      { city: "Mangaluru", country: "India", code: "IXE", airport: "Mangaluru International Airport" },
+      { city: "Mumbai", country: "India", code: "BOM", airport: "Chhatrapati Shivaji Maharaj International Airport" },
+      { city: "Navi Mumbai", country: "India", code: "NMI", airport: "Navi Mumbai International Airport" },
+      { city: "Nagpur", country: "India", code: "NAG", airport: "Dr. Babasaheb Ambedkar International Airport" },
+      { city: "Nashik", country: "India", code: "ISK", airport: "Nashik Airport" },
+      { city: "Pune", country: "India", code: "PNQ", airport: "Pune Airport" },
+      { city: "Ranchi", country: "India", code: "IXR", airport: "Birsa Munda Airport" },
+      { city: "Siliguri", country: "India", code: "IXB", airport: "Bagdogra International Airport" },
+      { city: "Srinagar", country: "India", code: "SXR", airport: "Srinagar Airport" },
+      { city: "Surat", country: "India", code: "STV", airport: "Surat Airport" },
+      { city: "Thiruvananthapuram", country: "India", code: "TRV", airport: "Trivandrum International Airport" },
+      { city: "Tiruchirappalli", country: "India", code: "TRZ", airport: "Tiruchirappalli International Airport" },
+      { city: "Tirupati", country: "India", code: "TIR", airport: "Tirupati International Airport" },
+      { city: "Vadodara", country: "India", code: "BDQ", airport: "Vadodara Airport" },
+      { city: "Varanasi", country: "India", code: "VNS", airport: "Lal Bahadur Shastri Airport" },
+      { city: "Vijayawada", country: "India", code: "VGA", airport: "Vijayawada International Airport" },
+      { city: "Visakhapatnam", country: "India", code: "VTZ", airport: "Visakhapatnam International Airport" },
+  
+      // Major Airports from Other Countries (One per Country)
+      { city: "Kabul", country: "Afghanistan", code: "KBL", airport: "Hamid Karzai International Airport" },
+      { city: "Tirana", country: "Albania", code: "TIA", airport: "Tirana International Airport Nënë Tereza" },
+      { city: "Algiers", country: "Algeria", code: "ALG", airport: "Houari Boumediene Airport" },
+      { city: "Andorra la Vella", country: "Andorra", code: "ALV", airport: "Andorra–La Seu d'Urgell Airport" },
+      { city: "Luanda", country: "Angola", code: "LAD", airport: "Quatro de Fevereiro Airport" },
+     
+  ]
+   
+  
+  
+      function setupAutocomplete(inputSelector, listClass) {
+          $(inputSelector).on("input", function () {
+              let inputValue = $(this).val().toLowerCase();
+              let listContainer = $(this).siblings("." + listClass);
+              listContainer.empty();
+  
+              if (inputValue.length < 1) return;
+  
+              let filteredAirports = airportList.filter(airport =>
+                  airport.city.toLowerCase().includes(inputValue) || 
+                  airport.code.toLowerCase().includes(inputValue) || 
+                  airport.airport.toLowerCase().includes(inputValue)
+              );
+  
+              filteredAirports.forEach(airport => {
+                  let item = $(`
+                      <div class="autocomplete-item" data-code="${airport.code}">
+                          <strong>${airport.city}, ${airport.country} (${airport.code})</strong><br>
+                          <small>${airport.airport}</small>
+                      </div>
+                  `);
+  
+                  item.on("click", function () {
+                      $(inputSelector).val(`${airport.city} (${airport.code})`);
+                      listContainer.empty();
+                  });
+  
+                  listContainer.append(item);
+              });
+          });
+  
+          $(document).on("click", function (event) {
+              if (!$(event.target).closest(inputSelector).length) {
+                  $("." + listClass).empty();
+              }
+          });
+      }
+  
+      setupAutocomplete("#fromOneWay", "from-autocomplete");
+      setupAutocomplete("#toOneWay", "to-autocomplete");
+      setupAutocomplete("#fromRounded", "from-autocomplete");
+      setupAutocomplete("#toRounded", "to-autocomplete");
+      setupAutocomplete("#fromMultiCity", "from-autocomplete");
+      setupAutocomplete("#toMultiCity", "to-autocomplete");
+  });
+  
+      </script>
+  
+    </div>
+ </section>
